@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Apps
+    'mainapp',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,9 @@ ROOT_URLCONF = 'Eshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR/'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,3 +120,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# User-uploaded media
+# This directs django on where to store the user uploaded meadia
+# For example, the ImageField datafields of any models will be stored in the
+# configured folder or server path here. The 'uploads_to'
+# gives the sub_folder name to be create to stor the data.
+# For developemnt purpose , we are , for now, using a folder within the 
+# Django project folder (BASE_DIR) called 'media' for emulating a media sever.
+# This folder will be created automatically when the first record is added.
+# the relative path of the media will be stored in SQL as VARCHAR().
+
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/'
