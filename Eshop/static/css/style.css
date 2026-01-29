@@ -1,21 +1,176 @@
-.card{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card {
     height: 100%;
     width: 250px;
-
-}
-.card-img-top{
-height: 300px;
-width: 100%;
+   
+   
 }
 
-.row{
-    padding-left:50px;
+.carousel-item {
+    img {
+        aspect-ratio: 16/6.5;
+        object-fit: cover;
+    }
+}
+
+.card-img-top {
+    height: 300px;
+    width: 100%;
+}
+
+.row {
+    padding-left: 50px;
     margin-top: 10px;
 }
+
 #products-container {
-  background: white;
-  padding-left: 3rem;
-  padding-right: 3rem;
+    background: white;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 
+
+/* PRODUCT DETAIL PAGE  */
+
+.product-detail {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    align-items: flex-start;
+}
+
+/* Carousel */
+.product-carousel {
+    width: 55%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.product-carousel img {
+    height: 450px;
+    object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+    width: 45%;
+}
+
+.product-thumb {
+    width: 40%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.product-info h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.product-info .desc {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Price */
+.product-info .price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #876f19;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.product-info .btn-group .btn {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+/* Hover Effects */
+.product-info .btn:hover {
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .product-detail {
+        flex-direction: column;
+    }
+
+    .product-carousel,
+    .product-info {
+        width: 100%;
+    }
+
+    .product-thumb {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* About Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+  color: #fff;
+  padding: 80px 20px;
+}
+
+.about-title {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.about-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Sections */
+.about-section {
+  padding: 70px 0;
+}
+
+/* Image */
+.about-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Cards */
+.about-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Vision */
+.vision-text {
+  max-width: 700px;
+  margin: auto;
+  font-size: 18px;
+  color: #555;
+}

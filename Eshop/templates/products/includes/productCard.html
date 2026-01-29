@@ -2,10 +2,24 @@
     <div class="card">
         <img src="{{product.thumbnail.url}}" class="card-img-top" alt="Product">
         <div class="card-body">
-            <h5 class="card-title">{{product.title}}</h5>
+
+            <a href="{% url 'product_details' product.pk %}">
+                    <a href="{% url 'product_details' product.pk %}" class="no-decoration">
+            <h5 class="card-title">
+                {{product.title}}
+            </h5>
+        </a>
             <p class="card-text">{{product.desc}}</p>
             <h4 class="card-price">&#8377; {{product.price}}</h4>
-            <a href="" class="btn btn-primary w-100">Add to Cart</a>
+            {% if product.stock > 0 %}
+            <a href="" class="btn btn-primary w-100">
+                Add to Cart</a>
+            
+                 {% else %}
+                <button class="btn btn-sm btn-secondary w-100" disabled>
+                    Out of Stock
+                </button>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,0 +1,95 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block content %}
+<section class="product-detail">
+
+  <!-- LEFT : CAROUSEL -->
+  <div id="carouselExampleRide" class="carousel slide product-carousel" data-bs-ride="true">
+    <div class="carousel-inner">
+     
+  {% for image in product.images.all %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        
+        <!-- IMAGE -->
+        <img src="{{ image.img.url }}" class="d-block w-100" alt="{{ product.title }}">
+
+        <!-- LEFT : DELETE -->
+        <a href="{% url 'del_prod_image' image.pk %}"
+           class="btn btn-danger position-absolute"
+           style="left:20px; top:20px; z-index:10;">
+          🗑 Delete
+        </a>
+
+        <!-- RIGHT : EDIT -->
+        <a href="{% url 'edit_prod_image' image.pk %}"
+           class="btn btn-warning position-absolute"
+           style="right:20px; top:20px; z-index:10;">
+          ✏ Edit
+        </a>
+
+      </div>
+
+    {% empty %}
+      <!-- NO IMAGE CASE -->
+      <div class="carousel-item active">
+        <div class="position-relative text-center"
+             style="height:320px; background:#f8f9fa; ;">
+
+          <p class="text-muted mt-5" >Image Not Found</p>
+
+          <!-- LEFT : DELETE -->
+          <a href="{% url 'del_prod_image' image.pk %}"
+             class="btn btn-danger position-absolute"
+             style="left:20px; top:20px;">
+            🗑 Delete
+          </a>
+
+          <!-- RIGHT : EDIT -->
+          <a href="{% url 'edit_prod_image' image.pk %}"
+             class="btn btn-warning position-absolute"
+             style="right:20px; top:20px;">
+            ✏ Edit
+          </a>
+
+        </div>
+      </div>
+    {% endfor %}
+      
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- RIGHT : PRODUCT INFO -->
+  <div class="product-info">
+    <img src="{{ product.thumbnail.url }}" class="product-thumb" alt="{{ product.title }}">
+
+    <h2>{{ product.title }}</h2>
+    <p class="desc">{{ product.desc }}</p>
+
+    <p class="price">₹ {{ product.price }}</p>
+
+    <div class="btn-group">
+      <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+      <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+ 
+
+</section>
+ <section>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-success">Upload</button>
+    </form>
+  </section>
+{% endblock %}

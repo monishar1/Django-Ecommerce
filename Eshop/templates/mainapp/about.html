@@ -1,11 +1,73 @@
+
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}
-About
+About | Style Aurora
 {% endblock %}
 
 {% block content %}
-This is the about page!!!
-<br>
-current page: {{ current_page}}
+<section class="about-hero">
+  <div class="container text-center">
+    <h1 class="about-title">About Style Aurora</h1>
+    <p class="about-subtitle">
+      Where fashion meets elegance ✨
+    </p>
+  </div>
+</section>
+
+<section class="about-section container">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img src="{% static 'images/about-fashion.jpg' %}" class="about-img" alt="Style Aurora Fashion">
+    </div>
+    <div class="col-md-6">
+      <h2>Who We Are</h2>
+      <p>
+        <strong>Style Aurora</strong> is a modern fashion destination designed for
+        trend-setters who love elegance, comfort, and confidence.
+        We believe fashion is not just clothing — it’s an identity.
+      </p>
+      <p>
+        Our collections are carefully curated to bring you premium styles,
+        timeless designs, and everyday luxury.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section bg-light">
+  <div class="container text-center">
+    <h2>Why Choose Us</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="about-card">
+          <h4>✨ Premium Quality</h4>
+          <p>Hand-picked materials and quality-checked products.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-card">
+          <h4>🚚 Fast Delivery</h4>
+          <p>Quick and reliable shipping across regions.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-card">
+          <h4>💬 Customer Support</h4>
+          <p>Friendly support to help you anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section container text-center">
+  <h2>Our Vision</h2>
+  <p class="vision-text">
+    To become a trusted fashion brand that empowers individuals
+    to express their unique style with confidence and grace.
+  </p>
+</section>
 {% endblock %}
+
