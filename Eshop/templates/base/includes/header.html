@@ -33,6 +33,13 @@
           </a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link {% if current_page == 'contact' %}active{% endif %}"
+             href="{% url 'home_page' %}">
+           contact
+          </a>
+        </li>
+
         <!-- MANAGE DROPDOWN -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
@@ -72,7 +79,7 @@
                type="search"
                placeholder="Trone Camera, Earphone, Mick..."
                aria-label="Search">
-        <button class="btn btn-warning rounded-end" type="submit">
+        <button class="btn btn-success rounded-end" type="submit">
           <i class="bi bi-search"></i>
         </button>
       </form>
