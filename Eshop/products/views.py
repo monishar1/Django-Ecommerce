@@ -4,6 +4,8 @@ from django.urls import reverse
 
 from .models import Product
 
+from .forms import ProductForm, ProductImageForm
+
 # Create your views here.
 def productsView(request):
     template = 'products/products.html'
@@ -45,15 +47,20 @@ from django.views.generic import (CreateView, DetailView,
                                    UpdateView, DeleteView)
                                 
 # ListView has already been implement using a function above : productsView()
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 class CreateProduct(CreateView):
     model = Product
     template_name = 'products/add_product.html'
     fields = '__all__'
+    form_class = ProductForm
     #redirection url for successful creation of resource
-    success_url = '/'
+    
     def get_success_url(self):
         return reverse('product_details', kwargs={'pk':self.object.pk})
+        def get(self, request, *args, **kwargs):
+         if not request.user.is_staff:
+            return redirect('home_page')
+        return super().get(request, *args, **kwargs)
 
 from django.views.generic.edit import FormMixin
 # This mixin provides ability to render forms from th 'form_class'
@@ -88,8 +95,9 @@ class ProductDetail(FormMixin, DetailView):
 class UpdateProduct(UpdateView):
     model = Product
     fields = '__all__'
+  
     template_name = 'products/update_product.html'
-    success_url = '/'
+    success_url = '/products/'
 
     def get_success_url(self):
         return reverse('product_details' , kwargs={'pk' :self.object.pk})
@@ -108,6 +116,7 @@ class EditProductImage(UpdateView):
     model = ProductImage
     template_name = 'products/image_edit.html'
     fields ='__all__'
+    form_class = ProductImage
     context_object_name = 'image'
 
     def get_success_url(self):

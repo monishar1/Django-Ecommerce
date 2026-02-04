@@ -1,25 +1,28 @@
-<div class="col-12 col-sm-6 col-md-4 col-lg-4">
-    <div class="card">
-        <img src="{{product.thumbnail.url}}" class="card-img-top" alt="Product">
-        <div class="card-body">
+<div id="products-container" data-add-url="{% url 'add_to_cart' %}">
 
-            <a href="{% url 'product_details' product.pk %}">
-                    <a href="{% url 'product_details' product.pk %}" class="no-decoration">
-            <h5 class="card-title">
-                {{product.title}}
-            </h5>
-        </a>
-            <p class="card-text">{{product.desc}}</p>
-            <h4 class="card-price">&#8377; {{product.price}}</h4>
-            {% if product.stock > 0 %}
-            <a href="" class="btn btn-primary w-100">
-                Add to Cart</a>
-            
-                 {% else %}
-                <button class="btn btn-sm btn-secondary w-100" disabled>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card product-card" data-product-id="{{ product.id }}">
+            <img src="{{ product.thumbnail.url }}" class="card-img-top">
+
+            <div class="card-body">
+                <a href="{% url 'product_details' product.pk %}" class="no-decoration">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                </a>
+
+                <p class="card-text">{{ product.desc }}</p>
+                <h4 class="card-price">₹ {{ product.price }}</h4>
+
+                {% if product.stock > 0 %}
+                <button class="btn btn-primary w-100 add-to-cart">
+                    Add to Cart
+                </button>
+                {% else %}
+                <button class="btn btn-secondary w-100" disabled>
                     Out of Stock
                 </button>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
+
 </div>

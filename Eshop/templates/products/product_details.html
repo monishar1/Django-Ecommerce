@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Product Details{% endblock %}
+{% block title %}Product Details
+{% endblock %}
 
 {% block content %}
 <section class="product-detail">
@@ -59,25 +60,42 @@
   <div class="product-info">
     <img src="{{ product.thumbnail.url }}" class="product-thumb" alt="{{ product.title }}">
 
-    <h2>{{ product.title }}</h2>
-    <p class="desc">{{ product.desc }}</p>
+    <h2 class="product-title">{{ product.title }}</h2>
+    <p class=" product-desc">{{ product.desc }}</p>
 
     <p class="price">₹ {{ product.price }}</p>
 
     <div class="btn-group">
       <a href="#" class="btn btn-outline-primary">Add to Cart</a>
-      <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning">Edit</a>
-      <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+      <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning">Edit Product</a>
+      <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete Product</a>
     </div>
   </div>
  
 
 </section>
- <section>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit" class="btn btn-success">Upload</button>
-    </form>
+ 
+    <section class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Upload Image</h5>
+        </div>
+
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-dark">
+                Upload
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
 {% endblock %}
