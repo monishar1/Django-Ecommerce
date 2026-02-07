@@ -36,7 +36,7 @@ class AddToCart(View):
 
         item,created = CartItem.objects.get_or_create(
             user=request.user,
-            product=this_product
+            product=product
         )
         
         item.quantity += 1
@@ -180,7 +180,7 @@ def view_cart(request):
         'total_quatity' : total_quantity,
         'total_price' : total_price
     }
-    return render(request,"cart/cart.html, context")
+    return render(request,"cart/cart.html", context)
 
 ### CART BADGE COUNT
 

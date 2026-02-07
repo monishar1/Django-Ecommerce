@@ -4,50 +4,60 @@
 {% block title %}Your Cart{% endblock %}
 
 {% block content %}
-<section id="cart-page" class="container py-5">
-    <h2 class="cart-title"> MY cart</h2>
-    {% if cart_items %}
-    <div class="row">
+<section class="container-fluid py-5 cart-page">
 
-        <!-- left items -->
-        <div class="col-lg-8 cart-items">
-            {% for item in cart_items %}
-            {% include 'cart/includes/product_cart_item.html' %}
-            {% endfor %}
+  <div class="container mb-4">
+    <h2 class="fw-semibold cart-title">My Cart</h2>
+  </div>
+
+  {% if cart_items %}
+  <div class="container">
+    <div class="row g-4 align-items-start w-100">
+
+      <!-- LEFT : CART ITEMS -->
+      <div class="col-12 col-lg-9">
+        <div class="d-flex flex-column gap-4">
+          {% for item in cart_items %}
+            {% include "cart/includes/product_cart_item.html" %}
+          {% endfor %}
         </div>
+      </div>
 
-        <!-- right -->
-        <div class="col-lg-4">
+      <!-- RIGHT : ORDER SUMMARY -->
+      <div class="col-12 col-lg-3">
+        <div class="card cart-summary sticky-top">
+          <div class="card-body p-4">
 
-            <div class="cart-summary card shadow-sm sticky-top">
-                <div class="card-body">
+            <h5 class="fw-semibold mb-4">Order Summary</h5>
 
-                    <h5 class="summary-title">
-                        Order summary
-                    </h5>
-
-                    <div class="summary-row">
-                        <span>Total Items</span>
-                        <span> {{ total_quantity }} </span>
-                    </div>
-
-                    <div class="summary-row total">
-                        <span>Toatl Price</span>
-                        <span>₹ {{ total_price|floatformat:2 }}</span>
-                    </div>
-                    <hr>
-
-
-                    <a href="#" class="btn btn-primary w-100 fw-bold">
-                        Proceed to Checkout
-                    </a>
-                </div>
+            <div class="d-flex justify-content-between text-muted mb-3">
+              <span>Total Items</span>
+              <span>{{ total_quantity }}</span>
             </div>
-        </div>
-    </div>
-    {% else %}
-    {% include 'cart/includes/empty_cart.html' %}
-    {% endif %}
-</section>
 
+            <div class="d-flex justify-content-between fw-semibold fs-5 mb-3">
+              <span>Total Price</span>
+              <span class="text-warning">
+                ₹ {{ total_price|floatformat:2 }}
+              </span>
+            </div>
+
+            <hr>
+
+            <a href="{% url 'create_order' %}"
+               class="btn btn-warning w-100 fw-semibold rounded-3 py-2">
+              Proceed to Checkout
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% else %}
+    {% include "cart/includes/empty_cart.html" %}
+  {% endif %}
+
+</section>
 {% endblock %}

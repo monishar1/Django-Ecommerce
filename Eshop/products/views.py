@@ -51,7 +51,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class CreateProduct(CreateView):
     model = Product
     template_name = 'products/add_product.html'
-    fields = '__all__'
+    success_url = '/products/'
     form_class = ProductForm
     #redirection url for successful creation of resource
     
@@ -115,10 +115,9 @@ from .models import ProductImage
 class EditProductImage(UpdateView):
     model = ProductImage
     template_name = 'products/image_edit.html'
-    fields ='__all__'
-    form_class = ProductImage
+    form_class = ProductImageForm
     context_object_name = 'image'
-
+    
     def get_success_url(self):
         return reverse('product_details' , kwargs={'pk':self.object.product.pk})
     def get_context_data(self, **kwargs):

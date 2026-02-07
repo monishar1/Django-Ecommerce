@@ -4,174 +4,207 @@
     box-sizing: border-box;
 }
 
-.card {
-    height: 100%;
-    width: 250px;
-   
-   
+/* =====================================
+   FLIPKART STYLE NAVBAR – ALL IN ONE
+   ===================================== */
+
+/* FIXED NAVBAR OFFSET */
+body {
+  padding-top: 70px;
+ 
 }
 
-.carousel-item {
-    img {
-        aspect-ratio: 16/6.5;
-        object-fit: cover;
-    }
+/* NAVBAR BASE */
+.navbar {
+  background-color: #2874f0; /* Flipkart blue */
+  padding: 0.55rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  
 }
 
-.card-img-top {
-    height: 300px;
-    width: 100%;
-}
-
-.row {
-    padding-left: 50px;
-    margin-top: 10px;
-}
-
-#products-container {
-    background: white;
-    padding-left: 3rem;
-    padding-right: 3rem;
-}
-
-
-
-/* PRODUCT DETAIL PAGE  */
-
-.product-detail {
-    display: flex;
-    gap: 40px;
-    padding: 40px;
-    align-items: flex-start;
-}
-
-/* Carousel */
-.product-carousel {
-    width: 55%;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-}
-
-.product-carousel img {
-    height: 450px;
-    object-fit: cover;
-}
-
-/* Product Info */
-.product-info {
-    width: 45%;
-}
-
-.product-thumb {
-    width: 40%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-/* Title */
-.product-info h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-/* Description */
-.product-info .desc {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-/* Price */
-.product-info .price {
-    font-size: 26px;
-    font-weight: 700;
-    color: #876f19;
-    margin-bottom: 20px;
-}
-
-/* Buttons */
-.product-info .btn-group .btn {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border-radius: 8px;
-}
-
-/* Hover Effects */
-.product-info .btn:hover {
-    transform: translateY(-2px);
-    transition: 0.2s ease;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .product-detail {
-        flex-direction: column;
-    }
-
-    .product-carousel,
-    .product-info {
-        width: 100%;
-    }
-
-    .product-thumb {
-        width: 100%;
-        height: 300px;
-    }
-}
-
-/* About Hero Section */
-.about-hero {
-  background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
-  color: #fff;
-  padding: 80px 20px;
-}
-
-.about-title {
-  font-size: 42px;
-  font-weight: bold;
+/* BRAND */
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
   letter-spacing: 1px;
+  color: #ffffff !important;
+  text-transform: uppercase;
 }
 
-.about-subtitle {
-  font-size: 18px;
-  opacity: 0.9;
+/* LEFT NAV (Home, About, Contact, Manage) */
+.navbar-nav.me-auto {
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
-/* Sections */
-.about-section {
-  padding: 70px 0;
+.navbar-nav.me-auto .nav-item {
+  margin-right: 22px;
 }
 
-/* Image */
-.about-img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+.navbar-nav.me-auto .nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff !important;
 }
 
-/* Cards */
-.about-card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
+.navbar-nav.me-auto .nav-link:hover,
+.navbar-nav.me-auto .nav-link.active {
+  color: #ffe500 !important; /* Flipkart yellow */
 }
 
-.about-card:hover {
-  transform: translateY(-8px);
+/* MANAGE (ADMIN) */
+.navbar-nav.me-auto .dropdown-toggle {
+  font-weight: 600;
 }
 
-/* Vision */
-.vision-text {
-  max-width: 700px;
-  margin: auto;
-  font-size: 18px;
-  color: #555;
+/* DROPDOWN MENU */
+.dropdown-menu {
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(181, 188, 186, 0.25);
+  padding: 0.4rem;
 }
 
+.dropdown-item {
+  font-size: 0.85rem;
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f5ff;
+  color: #090909;
+}
+
+/* SEARCH BAR */
+form.d-flex.flex-grow-1 {
+  flex-grow: 0 !important;
+  max-width: 420px;
+
+}
+
+form input.form-control {
+  height: 36px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 2px 0 0 2px;
+  background-color: white;
+}
+
+form input.form-control::placeholder {
+  color: #777;
+}
+
+form input.form-control:focus {
+  box-shadow: none;
+}
+
+/* SEARCH BUTTON */
+form button.btn-success {
+  height: 36px;
+  background-color: #ffe500;
+  border: none;
+  color: #000;
+  border-radius: 0 2px 2px 0;
+  font-weight: 600;
+}
+
+form button.btn-success:hover {
+  background-color: #ffeb3b;
+}
+
+/* RIGHT NAV (CART + USER) */
+.navbar-nav.ms-auto .nav-item {
+  margin-left: 14px;
+}
+
+.bi-cart3,
+.bi-person-circle {
+  color: #ffffff;
+}
+
+/* CART BADGE */
+.cart-badge {
+  background-color: #ff6161;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* MOBILE */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+   
+/** Product Contain  **/
+.Prod-contais {
+    padding: 20px;
+
+    #products-container {
+
+        .product-card {
+          width: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(134, 145, 12, 0.08);
+
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            }
+
+            .card-img-top {
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                text-align: center;
+               
+                .card-title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    color: #000;
+                    font-size: 25px;
+                     font-weight: bold;
+                 
+                }
+                .no-decoration{
+                   text-decoration: none;
+                }
+
+                .card-text {
+                    font-size: 18px;
+                    color:light rgb(163, 38, 38);
+                    height: 40px;
+                    overflow: hidden;
+                     font-weight: bold;
+                }
+
+                .card-price {
+                    color: #0e0206;
+                    font-weight: bold;
+                    margin: 10px 0;
+                }
+
+                .add-to-cart {
+                    border-radius: 30px;
+                    font-weight: 600;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: rgb(18, 181, 54);
+                        border-color: rgb(51, 16, 16);
+                    }
+                }
+            }
+        }
+    }
+}

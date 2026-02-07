@@ -1,81 +1,69 @@
-<div class="cart-item card shadow-sm">
+<div class="card cart-item">
 
-    <div class="row g-0 align-items-center">
+  <div class="row g-3 align-items-center p-3">
 
-        <!-- Image -->
-        <div class="col-md-3 text-center cart-thumb">
-            <img src="{{ item.product.thumbnail.url }}" class="img-fluid rounded">
-        </div>
+    <!-- Image -->
+    <div class="col-12 col-md-3 text-center">
+      <img src="{{ item.product.thumbnail.url }}"
+           class="img-fluid rounded-3 cart-image"
+           alt="{{ item.product.title }}">
+    </div>
 
-        <!-- Details -->
-        <div class="col-md-6">
-            <div class="card-body">
+    <!-- Product Info -->
+    <div class="col-12 col-md-6">
 
-                <h5 class="cart-product-title">
-                    <a href="{% url 'product_details' item.product.pk %}" class="no-decoration text-light">
-                        {{ item.product.title }}
-                    </a>
-                </h5>
+      <h5 class="fw-semibold mb-1">
+        {{ item.product.title }}
+      </h5>
 
-                <p class="cart-product-desc text-light">
-                    {{ item.product.desc|truncatewords:15 }}
-                </p>
+      <p class="small text-muted mb-2">
+        {{ item.product.desc|truncatewords:15 }}
+      </p>
 
-                <div class="mt-auto">
-                    <div class="product-price mb-2">
+      <!-- Price -->
+      <div class="d-flex align-items-center gap-2 mb-3">
+        {% if item.product.discount > 0 %}
+          <span class="text-muted text-decoration-line-through small">
+            ₹ {{ item.product.price }}
+          </span>
 
-                        {% if item.product.discount > 0 %}
-                        <!-- Old Price -->
-                        <span class="old-price text-muted text-decoration-line-through">
-                            ₹ {{ item.product.price }}
-                        </span>
+          <span class="badge discount-badge">
+            {{ item.product.discount }}% OFF
+          </span>
 
-                        <!-- Discount Percentage -->
-                        <span class="product-discount ms-2">
-                            {{ item.product.discount }}%
-                        </span>
+          <span class="fw-bold text-warning">
+            ₹ {{ item.product.offer_price|floatformat:2 }}
+          </span>
+        {% else %}
+          <span class="fw-bold text-warning">
+            ₹ {{ item.product.price|floatformat:2 }}
+          </span>
+        {% endif %}
+      </div>
 
-                        <!-- Offer Price -->
-                        <span class="new-price fw-bold ms-2">
-                            ₹ {{ item.product.offer_price|floatformat:2 }}
-                        </span>
+      <!-- Quantity Controls -->
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-outline-secondary btn-sm qty-btn">−</button>
 
-                        {% else %}
-                        <!-- Normal Price -->
-                        <span class="new-price fw-bold">
-                            ₹ {{ item.product.price }}
-                        </span>
-                        {% endif %}
+        <span class="fw-medium px-2">{{ item.quantity }}</span>
 
-                    </div>
-                </div>
+        <button class="btn btn-outline-secondary btn-sm qty-btn">+</button>
 
-                <div class="cart-controls">
-                    {% if item.quantity == 1 %}
-                    <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-trash-fill"></i></button>
-                    {% else %}
-                    <button class="btn btn-outline-secondary btn-sm">-</button>
-                    {% endif %}
-
-                    <span class="cart-qty text-light">{{ item.quantity }}</span>
-
-                    <button class="btn btn-outline-secondary btn-sm">+</button>
-
-                    <button class="btn btn-danger btn-sm ms-3 remove-btn">
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Subtotal -->
-        <div class="col-md-3 text-end cart-subtotal">
-            <p class="new-price">Total Price</p>
-            ₹{{ item.subtotal |floatformat:2}}
-        </div>
+        <button class="btn btn-link text-danger ms-auto p-0 remove-btn">
+          Remove
+        </button>
+      </div>
 
     </div>
+
+    <!-- Subtotal -->
+    <div class="col-12 col-md-3 text-md-end ">
+      <span class="text-muted small d-block">Total</span>
+      <span class="fw-bold fs-5">
+        ₹ {{ item.subtotal|floatformat:2 }}
+      </span>
+    </div>
+
+  </div>
 
 </div>
