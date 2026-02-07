@@ -15,7 +15,7 @@ class CartItem(models.Model):
     class Meta:
         unique_together = [['user', 'product']]
     def __str__(self):
-        return f"product: {self.product.title.capitaliZe()} in {self.user.username.cptitalize()} 's cart - Quantity : {self.quantity}"
+        return f"product: {self.product.title.capitalize()} in {self.user.username.capitalize()} 's cart - Quantity : {self.quantity}"
 
     @property
     def subtotal(self):

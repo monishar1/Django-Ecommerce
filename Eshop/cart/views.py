@@ -21,7 +21,7 @@ def cart_totals(user):
     ## ADD TO CART
 
 class AddToCart(View):
-    def post(Self,request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
 
         if not request.user.is_authenticated:
             return JsonResponse({
@@ -177,7 +177,7 @@ def view_cart(request):
     
     context = {
         'cart_items' : cart_items,
-        'total_quatity' : total_quantity,
+        'total_quantity' : total_quantity,
         'total_price' : total_price
     }
     return render(request,"cart/cart.html", context)

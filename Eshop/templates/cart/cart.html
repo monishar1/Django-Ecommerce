@@ -17,9 +17,16 @@
       <!-- LEFT : CART ITEMS -->
       <div class="col-12 col-lg-9">
         <div class="d-flex flex-column gap-4">
+
           {% for item in cart_items %}
             {% include "cart/includes/product_cart_item.html" %}
           {% endfor %}
+
+          <!-- CSRF for JS -->
+          <div style="display:none">
+            {% csrf_token %}
+          </div>
+
         </div>
       </div>
 
@@ -44,7 +51,7 @@
 
             <hr>
 
-            <a href="{% url 'create_order' %}"
+            <a href="{% url 'create_order' %}" 
                class="btn btn-warning w-100 fw-semibold rounded-3 py-2">
               Proceed to Checkout
             </a>
@@ -55,6 +62,7 @@
 
     </div>
   </div>
+
   {% else %}
     {% include "cart/includes/empty_cart.html" %}
   {% endif %}

@@ -140,3 +140,4 @@ def cancel_order(request, order_id):
         messages.error(request, "This order cannot be cancelled.")
 
     return redirect("home_page") 
+

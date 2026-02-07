@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="product-detail">
+<section class="produ-details product-card" id="products-container" data-product-id="{{product.id}}" data-add-url="{% url 'add_to_cart' %}">
 
   <!-- LEFT : CAROUSEL -->
   <div id="carouselExampleRide" class="carousel slide product-carousel" data-bs-ride="true">
@@ -66,7 +66,7 @@
     <p class="price">₹ {{ product.price }}</p>
 
     <div class="btn-group">
-      <a href="#" class="btn btn-outline-primary">Add to Cart</a>
+      <a href="#" class="btn btn-outline-primary add-to-cart">Add to Cart</a>
       <a href="{% url 'edit_product' product.pk %}" class="btn btn-warning">Edit Product</a>
       <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete Product</a>
     </div>
@@ -75,11 +75,11 @@
 
 </section>
  
-    <section class="container mt-5">
+    <section class="container mt-5 upload-img">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card shadow-sm">
-        <div class="card-header bg-dark text-white">
+        <div class="card-header ">
           <h5 class="mb-0">Upload Image</h5>
         </div>
 

@@ -27,7 +27,7 @@
             ₹ {{ item.product.price }}
           </span>
 
-          <span class="badge discount-badge">
+          <span class="badge bg-danger">
             {{ item.product.discount }}% OFF
           </span>
 
@@ -43,21 +43,33 @@
 
       <!-- Quantity Controls -->
       <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-outline-secondary btn-sm qty-btn">−</button>
 
-        <span class="fw-medium px-2">{{ item.quantity }}</span>
+        <button class="btn btn-outline-secondary btn-sm decrease"
+                data-id="{{ item.product.id }}">
+          −
+        </button>
 
-        <button class="btn btn-outline-secondary btn-sm qty-btn">+</button>
+        <span class="fw-medium px-2"
+              id="qty-{{ item.product.id }}">
+          {{ item.quantity }}
+        </span>
 
-        <button class="btn btn-link text-danger ms-auto p-0 remove-btn">
+        <button class="btn btn-outline-secondary btn-sm increase"
+                data-id="{{ item.product.id }}">
+          +
+        </button>
+
+        <button class="btn btn-link text-danger ms-auto p-0 remove"
+                data-id="{{ item.product.id }}">
           Remove
         </button>
+
       </div>
 
     </div>
 
     <!-- Subtotal -->
-    <div class="col-12 col-md-3 text-md-end ">
+    <div class="col-12 col-md-3 text-md-end">
       <span class="text-muted small d-block">Total</span>
       <span class="fw-bold fs-5">
         ₹ {{ item.subtotal|floatformat:2 }}
