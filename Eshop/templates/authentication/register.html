@@ -5,12 +5,9 @@ Register
 
 {% block content %}
 
-<section class="p-5">
+<section class=" register-page p-5">
 <div class="container ">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-body p-4">
+    
                     <h3 class="text-center mb-4">
                         Register Account
                     </h3>
@@ -25,16 +22,13 @@ Register
                         {% for field in form %}
                             {% include 'base/includes/basic_form_field.html' %}
                         {% endfor %}
-                        <button type="submit" class="btn btn-outline-warning w-100">Register</button>
+                        <button type="submit" class="btn btn-danger align-items-center  ">Register</button>
                         <p class="text-center mt-3 mb-0">
                             Already have an account ? Sign in 
                             <a href="{% url 'signin' %}">here</a>
                         </p>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                
 </div>
 </section>
 {% endblock %}

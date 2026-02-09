@@ -6,7 +6,8 @@ Edit Product Image
 
 
 {% block content %}
-<section>
+<section class="product-edit">
+<section >
     Edit image for{{object.product.title}}
     <img src="{{image.product.thumbnail}}" alt="" class="w-50">
 </section>
@@ -18,5 +19,6 @@ Edit Product Image
             <button type ="submit" class=""btn btn-success>Save Product</button>
         </form>
     </div>
+</section>
 </section>
 {% endblock %}

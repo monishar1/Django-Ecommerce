@@ -4,6 +4,7 @@ from django.urls import reverse
 
 from .models import Product
 
+
 from .forms import ProductForm, ProductImageForm
 
 # Create your views here.
@@ -19,27 +20,27 @@ def productsView(request):
 
     # search Products
 from django.db.models import Q
+
+from django.db.models import Q
+
 def searchProducts(request):
     template = 'products/search_results.html'
-    query = request.GET.get('q')
+    query = request.GET.get('q', '')
+
     if query:
-        search_results = Product.objects.filter(
-            Q(title__icontains = query)|
-            Q(desc__icontains = query)
-            )
-
-        context = {
-            'query' : query,
-            'products' : search_results
-        }
-
+        products = Product.objects.filter(
+            Q(title__icontains=query) |
+            Q(desc__icontains=query)
+        )
     else:
-        context ={
-                'query' : query,
-                'products' : None
-            }
+        products = Product.objects.none()
 
-        return render(request, template_name=template, context = context)
+    context = {
+        'query': query,
+        'products': products
+    }
+
+    return render(request, template, context)
 
 # CRUD Operatinons using Generic class Based Views of Django
 
@@ -57,8 +58,8 @@ class CreateProduct(CreateView):
     
     def get_success_url(self):
         return reverse('product_details', kwargs={'pk':self.object.pk})
-        def get(self, request, *args, **kwargs):
-         if not request.user.is_staff:
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_staff:
             return redirect('home_page')
         return super().get(request, *args, **kwargs)
 

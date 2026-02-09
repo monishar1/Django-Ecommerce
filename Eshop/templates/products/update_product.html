@@ -6,14 +6,15 @@ Edit Product
 
 
 {% block content %}
-
-<section>
+<div class="product-img-edit">
+<section >
     <div>
         <form method = "post" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
-            <button type ="submit" class=""btn btn-success>Save Product</button>
+            <button type ="submit" class="btn btn-primary">Save Product</button>
         </form>
     </div>
 </section>
+</div>
 {% endblock %}
