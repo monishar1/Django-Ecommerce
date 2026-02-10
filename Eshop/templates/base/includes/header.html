@@ -1,9 +1,10 @@
 <header>
-<nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+ 
+<nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="light">
   <div class="container-fluid">
 
     <!-- BRAND -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home_page' %}">
       <i><b> STYLE AURA</b></i>
     </a>
 
@@ -29,12 +30,6 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link {% if current_page == 'contact' %}active{% endif %}" href="{% url 'home_page' %}">
-            contact
-          </a>
-        </li>
-       
 
         <!-- MANAGE DROPDOWN -->
         <li class="nav-item dropdown">

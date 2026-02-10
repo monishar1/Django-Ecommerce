@@ -1,64 +1,86 @@
-<body>
-  <div class="page-wrapper">
+{% if request.path == '/' or request.path == '/contact/' %}
+<footer style="background:linear-gradient(135deg,#6691ed,#2f58c0);color:#0e0d0d;padding:55px 0 25px 0;margin-top:60px;width:100%;font-family:Arial,Helvetica,sans-serif;">
+  <div style="max-width:1200px;margin:auto;padding:0 20px;">
 
-      {% block content %}
-      {% endblock %}
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;">
 
+      <!-- Brand/About -->
+      <div style="flex:1;min-width:250px;">
+        <h3 style="margin-bottom:12px;font-weight:700;letter-spacing:1px;">STYLE AURA</h3>
+        <p style="margin-bottom:10px;color:#121111;">MyDjango eShop</p>
+        <p style="line-height:1.7;color:#040404;font-size:14px;">
+          A modern Django-based shopping platform to explore electronics, gadgets,
+          and lifestyle products with secure checkout and smooth experience.
+        </p>
 
-
-<footer class="eshop-footer">
-  <div class="container">
-
-    <div class="row footer-top">
-
-      <!-- LOGO -->
-      <div class="col-md-3">
-        <h4 class="logo">MyDjango eShop</h4>
-        <p class="slogan">Smart Shopping Platform</p>
+        <!-- Social Icons -->
+        <div style="margin-top:18px;">
+          <a href="https://facebook.com" target="_blank" style="color:white;margin-right:15px;font-size:20px;">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color:white;margin-right:15px;font-size:20px;">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" style="color:white;margin-right:15px;font-size:20px;">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" style="color:white;margin-right:15px;font-size:20px;">
+            <i class="bi bi-youtube"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" style="color:white;font-size:20px;">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
       </div>
 
-      
-
-      <!-- SUPPORT (Address here) -->
-      <div class="col-md-3">
-        <h6>Support</h6>
-        <p class="mb-1">
-          <i class="bi bi-geo-alt-fill"></i>
-          #12, 2nd Floor, MG Road,<br>
-          Bangalore, Karnataka 560001,<br>
-          India
+      <!-- Support -->
+      <div style="flex:1;min-width:220px;">
+        <h4 style="margin-bottom:15px;font-weight:600;">Support</h4>
+        <p style="margin:6px 0;font-size:14px;color:#0a0909;">
+          📍 #12, 2nd Floor, MG Road,<br>
+          Bangalore, Karnataka 560001
         </p>
-        <p class="mb-0">
-          <i class="bi bi-envelope-fill"></i>
-          support@mydjangoeshop.com
-        </p>
+        <p style="margin-top:8px;font-size:14px;">📧 support@mydjangoeshop.com</p>
+        <p style="margin-top:8px;font-size:14px;">📞 +91 98765 43210</p>
       </div>
 
-      <!-- ABOUT -->
-      <div class="col-md-3">
-        <h6>About</h6>
-        <p class="small">
-          MyDjango eShop is a Django-based ecommerce project for browsing products,
-          adding to cart, and placing orders easily.
+      <!-- Services -->
+      <div style="flex:1;min-width:200px;">
+        <h4 style="margin-bottom:15px;font-weight:600;">Our Services</h4>
+        <p style="margin:6px 0;font-size:14px;">✔ Secure Payment</p>
+        <p style="margin:6px 0;font-size:14px;">✔ Fast Delivery</p>
+        <p style="margin:6px 0;font-size:14px;">✔ Easy Returns</p>
+        <p style="margin:6px 0;font-size:14px;">✔ 24/7 Customer Support</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div style="flex:1;min-width:200px;">
+        <h4 style="margin-bottom:15px;font-weight:600;">Quick Links</h4>
+
+        <p style="margin:6px 0;">
+          <a href="/" style="color:#121212;text-decoration:none;font-size:14px;">Home</a>
+        </p>
+        <p style="margin:6px 0;">
+          <a href="/about/" style="color:#0d0d0d;text-decoration:none;font-size:14px;">About</a>
+        </p>
+        <p style="margin:6px 0;">
+          <a href="/contact/" style="color:#101010;text-decoration:none;font-size:14px;">Contact</a>
+        </p>
+        <p style="margin:6px 0;">
+          <a href="/products/all/" style="color:#0b0a0a;text-decoration:none;font-size:14px;">Products</a>
         </p>
       </div>
 
     </div>
 
-    <hr>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,0.2);margin:35px 0 15px 0;">
 
-    <!-- SOCIAL + COPYRIGHT -->
-    <div class="footer-bottom text-center">
-      <div class="social-icons">
-        <i class="bi bi-facebook"></i>
-        <i class="bi bi-twitter"></i>
-        <i class="bi bi-instagram"></i>
-        <i class="bi bi-github"></i>
-      </div>
-      <p class="copy">© 2026 MyDjango eShop. All rights reserved.</p>
+    <!-- Bottom -->
+    <div style="text-align:center;font-size:13px;color:#d0d0d0;">
+      © 2026 <b>Style Aura</b> | MyDjango eShop. All Rights Reserved.<br>
+      <span style="font-size:12px;">Built with Django • Designed for Smart Shopping</span>
     </div>
 
   </div>
 </footer>
- </div>
-</body>
+{% endif %}

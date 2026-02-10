@@ -16,7 +16,7 @@
         {{ item.product.title }}
       </h5>
 
-      <p class="small text-muted mb-2">
+      <p class=" mb-2">
         {{ item.product.desc|truncatewords:15 }}
       </p>
 
@@ -31,11 +31,11 @@
             {{ item.product.discount }}% OFF
           </span>
 
-          <span class="fw-bold text-warning">
+          <span class="fw-bold ">
             ₹ {{ item.product.offer_price|floatformat:2 }}
           </span>
         {% else %}
-          <span class="fw-bold text-warning">
+          <span class="fw-bold ">
             ₹ {{ item.product.price|floatformat:2 }}
           </span>
         {% endif %}
@@ -44,7 +44,7 @@
       <!-- Quantity Controls -->
       <div class="d-flex align-items-center gap-2">
 
-        <button class="btn btn-outline-secondary btn-sm decrease"
+        <button class="btn btn-danger decrease btn-sm "
                 data-id="{{ item.product.id }}">
           −
         </button>
@@ -54,7 +54,7 @@
           {{ item.quantity }}
         </span>
 
-        <button class="btn btn-outline-secondary btn-sm increase"
+        <button class="btn btn-success btn-sm increase"
                 data-id="{{ item.product.id }}">
           +
         </button>
@@ -69,8 +69,8 @@
     </div>
 
     <!-- Subtotal -->
-    <div class="col-12 col-md-3 text-md-end">
-      <span class="text-muted small d-block">Total</span>
+    <div class=" total">
+      <span class="text-dark ">Total</span>
       <span class="fw-bold fs-5">
         ₹ {{ item.subtotal|floatformat:2 }}
       </span>

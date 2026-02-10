@@ -91,6 +91,7 @@ class ProductDetail(FormMixin, DetailView):
             image.product = self.object
             image.save()
             return  redirect(self.get_success_url())
+        return self.render_to_response(self.get_context_data(form=form))
 
    
 class UpdateProduct(UpdateView):

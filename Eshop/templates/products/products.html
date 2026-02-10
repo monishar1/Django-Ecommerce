@@ -5,10 +5,14 @@ Products
 {% endblock %}
 
 {% block content %}
+{% if user.is_staff %}
 <section class="d-flex justify-content-center align-items-center mt-3">
   <a href="{% url 'add_product' %}" class="btn btn-success">Add Product</a>
 
 </section>
+{% endif %}
+
+
   {% include 'products/includes/productsSection.html' %}
 {% endblock %}
 

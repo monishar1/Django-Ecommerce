@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+
+<div style="max-width:900px;margin:100px auto 40px auto;padding:20px;">
+    
+    <h2 style="text-align:center;margin-bottom:20px;">Contact Us</h2>
+
+    <p style="text-align:center;color:#555;">
+        We'd love to hear from you. Reach out for any questions or support.
+    </p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:30px;margin-top:30px;">
+
+        <!-- Contact Info -->
+        <div style="flex:1;min-width:250px;">
+            <h4>Support</h4>
+            <p>#12, 2nd Floor, MG Road,<br>
+            Bangalore, Karnataka 560001,<br>
+            India</p>
+
+            <p><b>Email:</b> support@mydjangoeshop.com</p>
+            <p><b>Phone:</b> +91 98765 43210</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div style="flex:1;min-width:300px;">
+            <form method="post">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Your Name"
+                    style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;">
+
+                <input type="email" name="email" placeholder="Your Email"
+                    style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;">
+
+                <textarea name="message" placeholder="Your Message"
+                    style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;height:120px;"></textarea>
+
+                <button type="submit"
+                    style="background:#0b1a3a;color:white;padding:10px 20px;border:none;">
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

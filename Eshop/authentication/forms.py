@@ -35,3 +35,5 @@ class UserLoginForm(AuthenticationForm):
     password = forms.CharField(
         widget= forms.PasswordInput(attrs=BOOTSTRAP_ATTRS)
     )
+
+    

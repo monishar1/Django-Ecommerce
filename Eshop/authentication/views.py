@@ -14,6 +14,7 @@ from .forms import UserRegisterForm, UserLoginForm
 # Create your views here.
 from django.contrib.auth import login
 
+
 class UserRegisterView(CreateView):
     model = User
     form_class = UserRegisterForm
